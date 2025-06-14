@@ -5,61 +5,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CRADEVER</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Segoe UI", Roboto, Arial, sans-serif; background: #f4f6f8; }
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #005bea, #00c6fb);
+      color: white;
     }
+    nav .logo { font-size: 1.5rem; font-weight: bold; }
+    nav ul { list-style: none; display: flex; gap: 1rem; }
+    nav ul li a { color: white; text-decoration: none; font-size: 1rem; }
+    nav ul li a:hover { text-decoration: underline; }
 
     .banner {
-      height: 100vh;
+      height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(to right, #b400b4, #0088cc);
-      color: white;
       text-align: center;
+      background: url('https://source.unsplash.com/random/1600x900') center/cover no-repeat;
+      position: relative;
     }
-
-    h1 {
-      font-size: 60px;
-      font-weight: bold;
+    .banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
     }
-
-    p {
-      font-size: 28px;
-      margin-top: 15px;
+    .banner-content {
+      position: relative;
+      color: #fff;
+      max-width: 800px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .banner-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .banner-content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      line-height: 1.4;
+    }
+    .banner-content .btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background: linear-gradient(90deg, #ff416c, #ffdf37);
+      color: #111;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .banner-content .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .footer {
-      height: 50px;
-      background-color: #4848a2;
-      width: 100%;
+      background: #333;
+      color: #ccc;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9rem;
     }
 
-    .top-bar {
-      height: 50px;
-      background-color: #4848a2;
-      width: 100%;
+    @media (max-width: 768px) {
+      .banner-content h1 { font-size: 2.5rem; }
+      .banner-content p { font-size: 1.1rem; }
+      nav ul { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-bar"></div>
+  <nav>
+    <div class="logo">CRADEVER</div>
+    <ul>
+      <li><a href="#">Trang Chủ</a></li>
+      <li><a href="#">Giới Thiệu</a></li>
+      <li><a href="#">Dự Án</a></li>
+      <li><a href="#">Liên Hệ</a></li>
+    </ul>
+  </nav>
 
   <section class="banner">
-    <h1>CRADEVER</h1>
-    <p>Khởi đầu hành trình sáng tạo của bạn!</p>
+    <div class="banner-content">
+      <h1>CRADEVER</h1>
+      <p>Khởi đầu hành trình sáng tạo chuyên nghiệp & sống động từ hôm nay.</p>
+      <a href="#projects" class="btn">Xem Dự Án</a>
+    </div>
   </section>
 
-  <div class="footer"></div>
+  <footer class="footer">
+    © 2025 CRADEVER. Đã tạo nên bởi đam mê & công nghệ.
+  </footer>
 
 </body>
 </html>
