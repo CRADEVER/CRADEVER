@@ -64,6 +64,11 @@
     transition:.3s;backdrop-filter:blur(2px)
   }
   .store-btn:hover{transform:translateY(-3px);background:rgba(0,188,212,.25)}
+  .store-btn i { display: none; }
+  .store-btn:nth-child(1)::after { content: '...'; }
+  .store-btn:nth-child(2)::after { content: '...'; }
+  .store-btn:nth-child(3)::after { content: '...'; }
+  .store-btn span { display: none; }
 
   /* ---------- SOCIAL ---------- */
   .social-bar{
@@ -76,6 +81,12 @@
     transition:.3s;
   }
   .social-bar a:hover{background:var(--c-primary);transform:scale(1.1)}
+  /* Đảm bảo hiện TikTok icon */
+  .social-bar a:nth-child(3) i {
+    display: inline;
+    font-family: "Font Awesome 6 Brands";
+    font-weight: 400;
+  }
 
   /* ---------- ANIMATIONS ---------- */
   @keyframes fade{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
@@ -108,9 +119,9 @@
     <p>Phiên bản 2.4 — Update mới, ra mắt ngày 12/6!</p>
 
     <div class="store-btns">
-      <a class="store-btn" href="#"><i class="fa-brands fa-windows fa-lg"></i> Windows</a>
-      <a class="store-btn" href="#"><i class="fa-brands fa-google-play fa-lg"></i> Google Play</a>
-      <a class="store-btn" href="#"><i class="fa-brands fa-apple fa-lg"></i> App Store</a>
+      <a class="store-btn" href="#">...</a>
+      <a class="store-btn" href="#">...</a>
+      <a class="store-btn" href="#">...</a>
     </div>
   </div>
 </header>
@@ -119,7 +130,6 @@
 <div class="social-bar">
   <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
   <a href="#"><i class="fa-brands fa-youtube"></i></a>
-  <a href="#"><i class="fa-brands fa-discord"></i></a>
   <a href="#"><i class="fa-brands fa-tiktok"></i></a>
 </div>
 
