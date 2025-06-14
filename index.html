@@ -1,31 +1,65 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>CRADEVER – Thế giới nghệ thuật khoa học</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRADEVER</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      background-color: #ffffff;
-      color: #ff0000;
-      font-family: "Georgia", serif;
-      padding: 40px;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
     }
+
+    .banner {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #b400b4, #0088cc);
+      color: white;
+      text-align: center;
+    }
+
     h1 {
-      color: #0e6e43;
-      font-size: 3em;
-      border-bottom: 2px solid #cd2b8c;
+      font-size: 60px;
+      font-weight: bold;
     }
+
     p {
-      font-size: 1.2em;
+      font-size: 28px;
+      margin-top: 15px;
     }
-    iframe {
-      margin-top: 30px;
+
+    .footer {
+      height: 50px;
+      background-color: #4848a2;
+      width: 100%;
+    }
+
+    .top-bar {
+      height: 50px;
+      background-color: #4848a2;
+      width: 100%;
     }
   </style>
 </head>
 <body>
-  <h1>Xin chào từ CRADEVER</h1>
-  <p>Đây là không gian nơi nghệ thuật kết hợp với khoa học – nơi tôi kể truyện và tạo nhạc từ trí tưởng tượng.</p>
 
-  <h2>Truyện đầu
+  <div class="top-bar"></div>
 
+  <section class="banner">
+    <h1>CRADEVER</h1>
+    <p>Khởi đầu hành trình sáng tạo của bạn!</p>
+  </section>
+
+  <div class="footer"></div>
+
+</body>
+</html>
