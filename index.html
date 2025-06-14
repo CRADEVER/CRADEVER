@@ -5,97 +5,130 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>CRADEVER</title>
 
-<!-- Google Font + Font Awesome -->
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<!-- Preconnect & preload Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@600&display=swap" rel="stylesheet" media="print" onload="this.media='all';" />
+
+<!-- Defer Font Awesome to load after HTML -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all';" />
 
 <style>
-  :root{
+  :root {
     --c-primary:#00bcd4;
     --c-light:#f9fafc;
     --c-dark:#0f1823;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Inter',sans-serif;color:var(--c-light);background:#000}
-  /* ---------- NAV ---------- */
-  nav{
-    position:fixed;top:0;left:0;width:100%;z-index:1000;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:20px 60px;transition:all .4s ease;
+  * { box-sizing:border-box; margin:0; padding:0 }
+  body {
+    font-family:'Inter',sans-serif;
+    color:var(--c-light);
+    background:#000;
   }
-  nav.scrolled{backdrop-filter:blur(8px);background:rgba(15,24,35,.7)}
-  .logo{font-family:'Bebas Neue',cursive;font-size:2.3rem;letter-spacing:2px}
-  nav ul{display:flex;gap:36px;list-style:none}
-  nav a{color:var(--c-light);text-decoration:none;font-weight:600;position:relative}
-  nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--c-primary);transition:.3s}
-  nav a:hover::after{width:100%}
+  nav {
+    position:fixed; top:0; left:0; width:100%; z-index:1000;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 60px; transition:.4s ease;
+  }
+  nav.scrolled { backdrop-filter:blur(8px); background:rgba(15,24,35,.7) }
+  .logo {
+    font-family:'Bebas Neue',cursive;
+    font-size:2.3rem; letter-spacing:2px
+  }
+  nav ul { display:flex; gap:36px; list-style:none }
+  nav a {
+    color:var(--c-light); text-decoration:none; font-weight:600; position:relative
+  }
+  nav a::after {
+    content:""; position:absolute; left:0; bottom:-6px; width:0; height:2px;
+    background:var(--c-primary); transition:.3s
+  }
+  nav a:hover::after { width:100% }
 
-  /* ---------- HERO ---------- */
-  header{
+  header {
     min-height:100vh;
-    background:url('hero.jpg') center/cover no-repeat fixed;
-    display:flex;flex-direction:column;justify-content:center;align-items:center;
-    text-align:center;position:relative;overflow:hidden;
+    background:url('hero.webp') center/cover no-repeat fixed;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center; position:relative; overflow:hidden;
   }
-  header::before{
-    content:"";position:absolute;inset:0;
+  header::before {
+    content:""; position:absolute; inset:0;
     background:linear-gradient(160deg,rgba(0,0,0,.7) 20%,rgba(0,0,0,.2) 80%);
-    z-index:0;transition:transform 10s ease;
+    z-index:0; transition:transform 10s ease;
   }
-  header:hover::before{transform:scale(1.05)}        /* parallax zoom */
+  header:hover::before { transform:scale(1.05) }
 
-  .hero-content{position:relative;z-index:1;animation:fade 1.2s ease both}
-  .hero-content h1{
-      font-family:'Bebas Neue',cursive;
-      font-size:clamp(3rem,8vw,6rem);
-      letter-spacing:4px;
-      background:linear-gradient(90deg,#ffb86c,#f8f8f2 60%,#8be9fd);
-      -webkit-background-clip:text;color:transparent;
-      margin-bottom:12px;
+  .hero-content {
+    position:relative; z-index:1;
+    animation:fade 1.2s ease both;
   }
-  .hero-content p{font-size:1.3rem;margin-bottom:32px;opacity:.9}
+  .hero-content h1 {
+    font-family:'Bebas Neue',cursive;
+    font-size:clamp(3rem,8vw,6rem);
+    letter-spacing:4px;
+    background:linear-gradient(90deg,#ffb86c,#f8f8f2 60%,#8be9fd);
+    -webkit-background-clip:text;
+    color:transparent;
+    margin-bottom:12px;
+  }
+  .hero-content p {
+    font-size:1.3rem;
+    margin-bottom:32px;
+    opacity:.9
+  }
 
-  /* ---------- BUTTONS ---------- */
-  .store-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
-  .store-btn{
-    display:flex;align-items:center;gap:10px;padding:12px 22px;
-    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);
-    border-radius:12px;text-decoration:none;color:#fff;font-weight:600;
-    transition:.3s;backdrop-filter:blur(2px)
+  .store-btns {
+    display:flex; flex-wrap:wrap; justify-content:center; gap:18px
   }
-  .store-btn:hover{transform:translateY(-3px);background:rgba(0,188,212,.25)}
-  .store-btn i { display: none; }
-  .store-btn:nth-child(1)::after { content: '...'; }
-  .store-btn:nth-child(2)::after { content: '...'; }
-  .store-btn:nth-child(3)::after { content: '...'; }
-  .store-btn span { display: none; }
+  .store-btn {
+    display:flex; align-items:center; gap:10px; padding:12px 22px;
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:12px;
+    text-decoration:none;
+    color:#fff;
+    font-weight:600;
+    transition:.3s;
+    backdrop-filter:blur(2px)
+  }
+  .store-btn:hover {
+    transform:translateY(-3px);
+    background:rgba(0,188,212,.25)
+  }
+  .store-btn i, .store-btn span { display:none; }
+  .store-btn:nth-child(1)::after,
+  .store-btn:nth-child(2)::after,
+  .store-btn:nth-child(3)::after {
+    content:'...';
+  }
 
-  /* ---------- SOCIAL ---------- */
-  .social-bar{
-    position:fixed;right:25px;top:50%;transform:translateY(-50%);
-    display:flex;flex-direction:column;gap:18px;z-index:990;
+  .social-bar {
+    position:fixed; right:25px; top:50%;
+    transform:translateY(-50%);
+    display:flex; flex-direction:column; gap:18px; z-index:990;
   }
-  .social-bar a{
-    width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
-    background:rgba(255,255,255,.1);color:#fff;text-decoration:none;
+  .social-bar a {
+    width:42px; height:42px; border-radius:50%;
+    display:grid; place-items:center;
+    background:rgba(255,255,255,.1);
+    color:#fff;
+    text-decoration:none;
     transition:.3s;
   }
-  .social-bar a:hover{background:var(--c-primary);transform:scale(1.1)}
-  /* Đảm bảo hiện TikTok icon */
-  .social-bar a:nth-child(3) i {
-    display: inline;
-    font-family: "Font Awesome 6 Brands";
-    font-weight: 400;
+  .social-bar a:hover {
+    background:var(--c-primary);
+    transform:scale(1.1)
   }
 
-  /* ---------- ANIMATIONS ---------- */
-  @keyframes fade{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+  @keyframes fade {
+    from { opacity:0; transform:translateY(40px) }
+    to { opacity:1; transform:none }
+  }
 
-  /* ---------- RESPONSIVE ---------- */
   @media(max-width:768px){
-    nav{padding:16px 28px}
-    nav ul{gap:22px}
-    .store-btn{font-size:.9rem;padding:10px 18px}
+    nav { padding:16px 28px }
+    nav ul { gap:22px }
+    .store-btn { font-size:.9rem; padding:10px 18px }
   }
 </style>
 </head>
@@ -117,7 +150,6 @@
   <div class="hero-content">
     <h1>ONE STORY, MANY FORMS</h1>
     <p>Phiên bản 2.4 — Update mới, ra mắt ngày 12/6!</p>
-
     <div class="store-btns">
       <a class="store-btn" href="#">...</a>
       <a class="store-btn" href="#">...</a>
@@ -134,10 +166,9 @@
 </div>
 
 <script>
-  // Đổi màu nav khi cuộn
-  const nav=document.getElementById('navbar');
-  window.addEventListener('scroll',()=> {
-    nav.classList.toggle('scrolled',window.scrollY>50);
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
   });
 </script>
 
